@@ -32,3 +32,17 @@ def delete(item):
     cur.execute('DELETE FROM something WHERE item=%s', (item,))
     conn.commit()
     conn.close()
+
+
+def update(quantity, price, item):
+    conn = psycopg2.connect('dbname="something" user="postgres" password="postgres123" host="localhost" port="5432"')
+    cur = conn.cursor()
+    cur.execute('UPDATE something SET quantity=%s, price=%s WHERE item=%s', (quantity, price, item))
+    conn.commit()
+    conn.close()
+
+create_table()
+insert('Paperclip', 5, 0.5)
+delete('Coffee Cup')
+update(8, 5.0, 'Water Glass')
+print(view())

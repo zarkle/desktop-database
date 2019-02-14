@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter.ttk import *
+
 
 def convert():
   kg = int(entry_val.get())

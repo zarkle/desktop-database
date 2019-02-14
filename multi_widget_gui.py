@@ -6,8 +6,11 @@ def convert():
   gram = kg * 1000
   pound = kg * 2.20462
   ounce = kg * 35.274
+  # t1.delete("1.0", END)  -- in solution code but not necessary
   t1.insert(END, gram)
+  # t2.delete("1.0", END)
   t2.insert(END, pound)
+  # t3.delete("1.0", END)
   t3.insert(END, ounce)
 
 window = Tk()

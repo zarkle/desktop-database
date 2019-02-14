@@ -25,5 +25,15 @@ def view():
     conn.close()
     return rows
 
-insert("Coffee Cup", 8, 5)
+
+def delete(item):
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute('DELETE FROM something WHERE item=?', (item,))
+    conn.commit()
+    conn.close()
+
+insert('Paperclip', 5, 0.5)
+delete('Coffee Cup')
+
 print(view())

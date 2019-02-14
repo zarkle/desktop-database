@@ -33,7 +33,15 @@ def delete(item):
     conn.commit()
     conn.close()
 
+
+def update(quantity, price, item):
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute('UPDATE something SET quantity=?, price=? WHERE item=?', (quantity, price, item))
+    conn.commit()
+    conn.close()
+
 insert('Paperclip', 5, 0.5)
 delete('Coffee Cup')
-
+update(8, 5.0, 'Water Glass')
 print(view())

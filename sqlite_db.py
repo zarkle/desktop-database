@@ -16,4 +16,14 @@ def insert(item, quantity, price):
     conn.commit()
     conn.close()
 
-insert("Water Glass", 10, 5)
+
+def view():
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM something')
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+insert("Coffee Cup", 8, 5)
+print(view())

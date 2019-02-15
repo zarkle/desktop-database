@@ -29,16 +29,19 @@ def add_command():
 def get_selection(event):
     """Get the book info for the current selected row."""
     global selection
-    idx = lb.curselection()[0]
-    selection = lb.get(idx)
-    e1.delete(0, END)
-    e1.insert(END, selection[1])
-    e2.delete(0, END)
-    e2.insert(END, selection[2])
-    e3.delete(0, END)
-    e3.insert(END, selection[3])
-    e4.delete(0, END)
-    e4.insert(END, selection[4])
+    try:
+        idx = lb.curselection()[0]
+        selection = lb.get(idx)
+        e1.delete(0, END)
+        e1.insert(END, selection[1])
+        e2.delete(0, END)
+        e2.insert(END, selection[2])
+        e3.delete(0, END)
+        e3.insert(END, selection[3])
+        e4.delete(0, END)
+        e4.insert(END, selection[4])
+    except IndexError:
+        pass
 
 
 def delete_command():

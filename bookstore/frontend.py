@@ -48,12 +48,13 @@ def delete_command():
 
 
 def update_command():
-    """Delete a book command."""
+    """Update a book record."""
     backend.update(selection[0], title.get(), author.get(), year.get(), isbn.get())
     lb.delete(0, END)
     lb.insert(END, (title.get(), author.get(), year.get(), isbn.get()))
 
 window = Tk()
+window.wm_title('Bookstore')
 
 l1 = Label(window, text='Title')
 l1.grid(row=0, column=0)

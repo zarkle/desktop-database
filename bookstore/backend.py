@@ -52,3 +52,16 @@ def delete(id):
     cursor.execute('DELETE FROM book WHERE id=?', (id,))
     conn.commit()
     conn.close()
+
+
+def update(id, title, author, year, isbn):
+    """Update a book record."""
+    conn = sqlite3.connect('books.db')
+    cursor = conn.cursor()
+    cursor.execute('UPDATE book SET title=?, author=?, year=?, \
+        isbn=? WHERE id=?', (title, author, year, isbn, id))
+    conn.commit()
+    conn.close()
+
+
+connect_db()

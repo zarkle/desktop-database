@@ -46,6 +46,13 @@ def delete_command():
     backend.delete(selection[0])
     view_command()
 
+
+def update_command():
+    """Delete a book command."""
+    backend.update(selection[0], title.get(), author.get(), year.get(), isbn.get())
+    lb.delete(0, END)
+    lb.insert(END, (title.get(), author.get(), year.get(), isbn.get()))
+
 window = Tk()
 
 l1 = Label(window, text='Title')
@@ -96,7 +103,7 @@ b2.grid(row=3, column=3)
 b3 = Button(window, text='Add Book', width=12, command=add_command)
 b3.grid(row=4, column=3)
 
-b4 = Button(window, text='Update Book', width=12)
+b4 = Button(window, text='Update Book', width=12, command=update_command)
 b4.grid(row=5, column=3)
 
 b5 = Button(window, text='Delete Book', width=12, command=delete_command)

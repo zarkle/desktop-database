@@ -24,4 +24,14 @@ def insert(title, author, year, isbn):
     conn.close()
 
 
+def view():
+    """View all books."""
+    conn = sqlite3.connect('books.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM book')
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
+
+
 connect_db()

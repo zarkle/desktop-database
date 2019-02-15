@@ -1,7 +1,16 @@
-"""A program that stores book information."""
+"""The frontend code for a program that stores book information."""
 
 
 from tkinter import *
+import backend
+
+
+def view_command():
+    """Show all books in listbox."""
+    lb.delete(0, END)
+    for row in backend.view():
+        lb.insert(END, row)
+
 
 window = Tk()
 
@@ -33,7 +42,7 @@ isbn = StringVar()
 e4 = Entry(window, textvariable=isbn)
 e4.grid(row=1, column=3)
 
-lb = Listbox(window, height=6, width=3)
+lb = Listbox(window, height=6, width=35, fg='white', bg='blue')
 lb.grid(row=2, column=0, rowspan=6, columnspan=2)
 
 sb = Scrollbar(window)
@@ -42,7 +51,7 @@ sb.grid(row=2, column=2, rowspan=6)
 lb.configure(yscrollcommand=sb.set)
 sb.configure(command=lb.yview)
 
-b1 = Button(window, text='View All', width=12)
+b1 = Button(window, text='View All', width=12, command=view_command)
 b1.grid(row=2, column=3)
 
 b2 = Button(window, text='Search Books', width=12)

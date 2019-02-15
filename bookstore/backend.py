@@ -35,7 +35,7 @@ def view():
 
 
 def search(title=None, author=None, year=None, isbn=None):
-    """View all books."""
+    """Search books."""
     conn = sqlite3.connect('books.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM book WHERE title=? OR author=? \
@@ -45,4 +45,10 @@ def search(title=None, author=None, year=None, isbn=None):
     return rows
 
 
-connect_db()
+def delete(id):
+    """Delete a book record."""
+    conn = sqlite3.connect('books.db')
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM book WHERE id=?', (id,))
+    conn.commit()
+    conn.close()

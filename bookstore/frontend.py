@@ -19,6 +19,12 @@ def search_command():
         lb.insert(END, row)
 
 
+def add_command():
+    """Add a new book."""
+    backend.insert(title.get(), author.get(), year.get(), isbn.get())
+    lb.delete(0, END)
+    lb.insert(END, (title.get(), author.get(), year.get(), isbn.get()))
+
 window = Tk()
 
 l1 = Label(window, text='Title')
@@ -64,7 +70,7 @@ b1.grid(row=2, column=3)
 b2 = Button(window, text='Search Books', width=12, command=search_command)
 b2.grid(row=3, column=3)
 
-b3 = Button(window, text='Add Book', width=12)
+b3 = Button(window, text='Add Book', width=12, command=add_command)
 b3.grid(row=4, column=3)
 
 b4 = Button(window, text='Update Book', width=12)

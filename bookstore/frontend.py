@@ -31,6 +31,14 @@ def get_selection(event):
     global selection
     idx = lb.curselection()[0]
     selection = lb.get(idx)
+    e1.delete(0, END)
+    e1.insert(END, selection[1])
+    e2.delete(0, END)
+    e2.insert(END, selection[2])
+    e3.delete(0, END)
+    e3.insert(END, selection[3])
+    e4.delete(0, END)
+    e4.insert(END, selection[4])
 
 
 def delete_command():

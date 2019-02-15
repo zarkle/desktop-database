@@ -1,5 +1,7 @@
 ## Bookstore
-
+  
+![App Image](bookstore.png)
+  
 A program that stores book information:
 - Title
 - Author
@@ -15,4 +17,3 @@ Users can:
 
 To use this program, download frontend.py and backend.py. Then run `python3 frontend.py` at your command prompt. If no database exists, a new one will be created. Otherwise, your database will populate the list of books.
 
-![App Image](bookstore.png)

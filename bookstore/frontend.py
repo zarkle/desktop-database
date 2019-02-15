@@ -12,6 +12,13 @@ def view_command():
         lb.insert(END, row)
 
 
+def search_command():
+    """Search for a book."""
+    lb.delete(0, END)
+    for row in backend.search(title.get(), author.get(), year.get(), isbn.get()):
+        lb.insert(END, row)
+
+
 window = Tk()
 
 l1 = Label(window, text='Title')
@@ -54,7 +61,7 @@ sb.configure(command=lb.yview)
 b1 = Button(window, text='View All', width=12, command=view_command)
 b1.grid(row=2, column=3)
 
-b2 = Button(window, text='Search Books', width=12)
+b2 = Button(window, text='Search Books', width=12, command=search_command)
 b2.grid(row=3, column=3)
 
 b3 = Button(window, text='Add Book', width=12)
